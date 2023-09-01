@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { BookmarksComponent } from './components/map/bookmarks/bookmarks.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HistoryComponent } from './components/map/history/history.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { BackOfficeComponent } from './components/back-office/back-office.component';
@@ -14,13 +13,16 @@ import { InscriptionFormComponent } from './components/user/inscription-form/ins
 import { FooterComponent } from './components/footer/footer.component';
 import { AlertComponent } from './components/back-office/alert/alert.component';
 import { ModerationComponent } from './components/back-office/moderation/moderation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/forum/home/home.component';
+import { TopicComponent } from './components/forum/topic/topic.component';
+import { ThreadComponent } from './components/forum/thread/thread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     BookmarksComponent,
-    NavBarComponent,
     HistoryComponent,
     ForumComponent,
     BackOfficeComponent,
@@ -30,6 +32,10 @@ import { ModerationComponent } from './components/back-office/moderation/moderat
     FooterComponent,
     AlertComponent,
     ModerationComponent,
+    HeaderComponent,
+    HomeComponent,
+    TopicComponent,
+    ThreadComponent,
   ],
   imports: [
     BrowserModule
