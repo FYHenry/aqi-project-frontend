@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreadComponent } from './thread.component';
+import { FooterComponent } from './footer.component';
 
-describe('ThreadComponent', () => {
-  let component: ThreadComponent;
-  let fixture: ComponentFixture<ThreadComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ThreadComponent]
+      declarations: [FooterComponent]
     });
-    fixture = TestBed.createComponent(ThreadComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
