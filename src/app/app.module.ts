@@ -40,7 +40,7 @@ import { ProfilComponent } from './components/user/profil/profil.component';
     ProfilComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
