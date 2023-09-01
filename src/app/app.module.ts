@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
+import { ProfilComponent } from './components/user/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
     HomeComponent,
     TopicComponent,
     ThreadComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule
