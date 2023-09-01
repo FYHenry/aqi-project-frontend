@@ -13,7 +13,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     FormComponent,
     MapComponent,
     BookmarksComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule
