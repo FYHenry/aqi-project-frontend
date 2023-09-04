@@ -18,6 +18,8 @@ import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ProfilComponent } from './components/user/profil/profil.component';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
