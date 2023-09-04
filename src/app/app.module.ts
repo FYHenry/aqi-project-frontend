@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { BookmarksComponent } from './components/map/bookmarks/bookmarks.component';
@@ -37,10 +38,11 @@ import { ProfilComponent } from './components/user/profil/profil.component';
     HomeComponent,
     TopicComponent,
     ThreadComponent,
-    ProfilComponent,
+    ProfilComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
