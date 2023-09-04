@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
@@ -18,6 +19,8 @@ import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ProfilComponent } from './components/user/profil/profil.component';
     ProfilComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule,
+    BsDropdownModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
