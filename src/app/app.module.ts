@@ -19,7 +19,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
+
 import { ProfilFormComponent } from './components/user/profil-form/profil-form.component';
+
+import { ProfilComponent } from './components/user/profil/profil.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -43,9 +49,14 @@ import { ProfilFormComponent } from './components/user/profil-form/profil-form.c
   ],
   imports: [
     BrowserModule,
+
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    NgbModule,
+    FontAwesomeModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
