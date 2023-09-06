@@ -1,0 +1,16 @@
+profil-form: mettre par defaut les valeurs actuelles du profil (saf mot de passe)
+profil-form: ajouter bouton ANNULER
+forms x3: cohérence (height champs input)
+"City": dropdown list à faire avec code postal et/ou ville en entree
+
+
+
+
+
+
+$ npx json-server database/data.json -w
+====================== vat=riabes d'environnement
+ng g environments
+
+>> créer un folder environments avec 2 fichiers
+>> + modif fichier angular.json
