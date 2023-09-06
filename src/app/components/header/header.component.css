@@ -1,0 +1,15 @@
+.header{
+    right: 0; 
+    top:0; 
+    width: 50%; 
+    justify-content: flex-end;
+}
+
+.my-container{
+    justify-content: flex-end; 
+    background-color: red;
+}
+
+.nav-link{
+    color: #092f3a;
+}
