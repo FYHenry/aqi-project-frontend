@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
@@ -20,9 +24,9 @@ import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
 
-import { ProfilFormComponent } from './components/user/profil-form/profil-form.component';
-
+import { ProfilComponent } from './components/user/profil/profil.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -48,13 +52,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
     NgbModule,
-    FontAwesomeModule,
+    BsDropdownModule.forRoot(),
+    BrowserAnimationsModule,
+    FontAwesomeModule
 
   ],
   providers: [],
