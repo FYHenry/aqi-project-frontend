@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InscriptionFormComponent } from './inscription-form.component';
+import { InscriptionFormComponent } from './register-form.component';
 
 describe('InscriptionFormComponent', () => {
   let component: InscriptionFormComponent;
