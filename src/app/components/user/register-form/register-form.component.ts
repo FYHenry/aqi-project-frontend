@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Address } from 'src/app/shared/models/address';
 import { User } from 'src/app/shared/models/user';
+import { AddressService } from 'src/app/shared/services/address.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -20,26 +21,35 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
     email: new FormControl(''),
     password: new FormControl(''),
     passwordConf: new FormControl(''),
-    address: new FormGroup({
+    usraddress: new FormGroup({
       addressLine1: new FormControl(''),
       addressLine2: new FormControl(''),
       city: new FormControl('')
     })
   });
 
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService, private _addressService: AddressService) {
   }
-  createAddress(){
-    console.log("RegisterForm-CreareAddress1", this.address);
-    this.address.addressLine1 = this.registerForm.value.address?.addressLine1!;
-    this.address.addressLine2 = this.registerForm.value.address?.addressLine2!;
-    this.address.city = "34296";
-    
-
-  }
+  
   createUser(){
-    console.log("RegsiterForm-CreateUser:1", this.user);
-    
+    this.createAddr();
+    this.createUsr();
+  }
+
+  createAddr(){
+    this.address.addressLine1 = this.registerForm.value.usraddress?.addressLine1!;
+    this.address.addressLine2 = this.registerForm.value.usraddress?.addressLine2!;
+    this.address.cityInsee = "34296";
+    console.log("RegsterForm-createAddress-this.address", this.address);
+    console.log("RegsterForm-createAddress-thisregiserForm", this.registerForm.value.usraddress);
+
+    this._addressService
+      .create(this.address)
+      .subscribe(() => {console.log("User address created")})
+}
+
+  createUsr(){
+    console.log("RegsterForm-createUser1", this.registerForm.value);
     this.user.lastName = this.registerForm.value.lastName!;
     this.user.firstName = this.registerForm.value.firstName!;
     this.user.email=this.registerForm.value.email!;
@@ -53,15 +63,14 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
     this.user.messageIds = [];
     this.user.reactionIds = [];
 
-    console.log("RegsiterForm-CreateUser:2", this.user);
-    console.log("RegsiterForm-value:", this.registerForm.value);
-    console.log("RegsiterForm-value:", this.registerForm.value.lastName);
+    console.log("RegsterForm-createUser2", this.registerForm.value);
     this._userService
       .create(this.user)
-      .subscribe(() => {console.log("New User has been created")});
+      .subscribe(() => {console.log("User created")})
 
   }
 }
+ 
 
 /* M S05.09: OLD CLASS 
   export class RegisterFormComponent {

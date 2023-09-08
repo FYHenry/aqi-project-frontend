@@ -34,11 +34,4 @@ export class UserService{
             .put(`${this._baseUrl}/${updated.id}`, updated)
     }
 
-/*
-    public auth(loginCred: User){
-       nsole.log("auth2:",this._http.post(this._baseUrl, loginCred));
-        return this._http
-            .post<User>(this._baseUrl, loginCred);
-    }
-*/    
 }
