@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 
 export class SigninFormComponent {
-  
+
   user: User ={};
   constructor(private _authService: AuthService) {}
 

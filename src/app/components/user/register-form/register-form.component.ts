@@ -13,7 +13,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class RegisterFormComponent /*V1: implements OnInit*/ {
   user: User ={};
   address: Address={};
-  
+
   registerForm = new FormGroup({
     lastName: new FormControl(''),
     firstName: new FormControl(''),
@@ -34,12 +34,12 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
     this.address.addressLine1 = this.registerForm.value.address?.addressLine1!;
     this.address.addressLine2 = this.registerForm.value.address?.addressLine2!;
     this.address.city = "34296";
-    
+
 
   }
   createUser(){
     console.log("RegsiterForm-CreateUser:1", this.user);
-    
+
     this.user.lastName = this.registerForm.value.lastName!;
     this.user.firstName = this.registerForm.value.firstName!;
     this.user.email=this.registerForm.value.email!;
@@ -63,21 +63,21 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
   }
 }
 
-/* M S05.09: OLD CLASS 
+/* M S05.09: OLD CLASS
   export class RegisterFormComponent {
     user: User ={};
-  
+
     constructor(private _userService: UserService){}
-  
+
     createUser(){
       console.log("RegsiterForm-CreateUser:1", this.user);
       this.user.role="USER";
-      
+
       console.log("RegsiterForm-CreateUser:2", this.user);
       this._userService
         .create(this.user)
         .subscribe(() => {console.log("New User has been created")});
-  
+
     }
   }
   */

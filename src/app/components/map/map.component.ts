@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import  * as L from 'leaflet';
+import * as L from 'leaflet';
 
 
 @Component({

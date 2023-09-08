@@ -22,7 +22,6 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
 
 import { ProfilFormComponent } from './components/user/profil-form/profil-form.component';
 
-import { ProfilComponent } from './components/user/profil/profil.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
