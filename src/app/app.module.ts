@@ -24,10 +24,8 @@ import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
 
-import { ProfilComponent } from './components/user/profil/profil.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -48,7 +46,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     TopicComponent,
     ThreadComponent,
-    ProfilFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +55,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
-    FontAwesomeModule
 
   ],
   providers: [],

@@ -30,14 +30,14 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
 
   constructor(private _userService: UserService, private _addressService: AddressService) {
   }
-  
+
   createAddress(){
     console.log("RegisterForm-CreareAddress1", this.address);
-    this.address.addressLine1 = this.registerForm.value.address?.addressLine1!;
-    this.address.addressLine2 = this.registerForm.value.address?.addressLine2!;
-    this.address.city = "34296";
+    this.address.addressLine1 = this.registerForm.value.usraddress?.addressLine1!;
+    this.address.addressLine2 = this.registerForm.value.usraddress?.addressLine2!;
+    this.address.cityInsee = "34296";
   }
-  
+
   createUser(){
 
     this.createAddr();
@@ -81,7 +81,7 @@ export class RegisterFormComponent /*V1: implements OnInit*/ {
 
   }
 }
- 
+
 
 /* M S05.09: OLD CLASS
   export class RegisterFormComponent {
