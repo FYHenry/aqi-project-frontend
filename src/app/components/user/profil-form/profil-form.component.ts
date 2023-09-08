@@ -10,6 +10,6 @@ export class ProfilFormComponent {
 user: User = {};
 
 updateProfil(){
-  
+
 }
 }
