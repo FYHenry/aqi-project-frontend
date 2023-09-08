@@ -35,17 +35,9 @@ export class UserService{
         return this._http
             .put(`${this._baseUrl}/${updated.id}`, updated)
     }
-
+  
     public findConnectedUserById(id: number): Observable<ConnectedUser> {
         return this._http.get<ConnectedUser>(`${this._baseUrl}/${id}`);
     }
 
-
-/*
-    public auth(loginCred: User){
-       nsole.log("auth2:",this._http.post(this._baseUrl, loginCred));
-        return this._http
-            .post<User>(this._baseUrl, loginCred);
-    }
-*/
 }
