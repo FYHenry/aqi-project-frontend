@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
@@ -8,8 +10,8 @@ import { HistoryComponent } from './components/map/history/history.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { BackOfficeComponent } from './components/back-office/back-office.component';
 import { UserComponent } from './components/user/user.component';
-import { LoginFormComponent } from './components/user/login-form/login-form.component';
-import { InscriptionFormComponent } from './components/user/inscription-form/inscription-form.component';
+import { SigninFormComponent } from './components/user/signin-form/signin-form.component';
+import { RegisterFormComponent } from './components/user/register-form/register-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AlertComponent } from './components/back-office/alert/alert.component';
 import { ModerationComponent } from './components/back-office/moderation/moderation.component';
@@ -17,7 +19,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
-import { ProfilComponent } from './components/user/profil/profil.component';
+
+import { ProfilFormComponent } from './components/user/profil-form/profil-form.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +35,8 @@ import { ProfilComponent } from './components/user/profil/profil.component';
     ForumComponent,
     BackOfficeComponent,
     UserComponent,
-    LoginFormComponent,
-    InscriptionFormComponent,
+    SigninFormComponent,
+    RegisterFormComponent,
     FooterComponent,
     AlertComponent,
     ModerationComponent,
@@ -37,10 +44,18 @@ import { ProfilComponent } from './components/user/profil/profil.component';
     HomeComponent,
     TopicComponent,
     ThreadComponent,
-    ProfilComponent,
+    ProfilFormComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
+    NgbModule,
+    FontAwesomeModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

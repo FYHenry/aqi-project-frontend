@@ -1,0 +1,76 @@
+<div class="modal">
+
+    <h1>MON PROFILE</h1>
+    <form class="content" (ngSubmit)="updateProfil()">
+        <p class="required">*required</p>
+        <h2 class="requiredTitle">Nom</h2>
+        <input class="inputfield"
+            type="text"
+            name="lastName"
+            autocomplete="off"
+            [(ngModel)]="user.lastName"
+            placeholder="nom de famille">
+        <h2 class="requiredTitle">Prénom</h2>
+        <input class="inputfield"
+            type="text"
+            name="firstName"
+            autocomplete="off"
+            [(ngModel)]="user.firstName"
+            placeholder="prénom">
+        <h2 class="requiredTitle">E-Mail</h2>
+        <input class="inputfield"
+            type="email"
+            name="E-MAIL"
+            autocomplete="off"
+            [(ngModel)]="user.email"
+            placeholder="nom@exemple.com">
+        <h2 class="requiredTitle">Ancien mot de passe</h2>    
+        <input class="inputfield"
+            type="string"
+            name="ANCIEN MOT DE PASSE"
+            autocomplete="off"
+            [(ngModel)]="user.password"
+            placeholder="mot de passe actuel">
+        <h2 class="requiredTitle">Nouveau mot de passe</h2>    
+        <input class="inputfield"
+            type="string"
+            name="MOT DE PASSE"
+            autocomplete="off"
+            [(ngModel)]="user.password"
+            placeholder="Au moins 5 caractères">
+        <h2 class="requiredTitle">Confirmer nouveau mot de passe</h2>    
+        <input class="inputfield"
+            type="string"
+            name="MOT DE PASSE"
+            autocomplete="off"
+            [(ngModel)]="user.password"
+            placeholder="Au moins 5 caractères">
+        <!--
+            <h2 class="requiredTitle">Adresse postale</h2>    
+        <input class="inputfield"
+            type="string"
+            name="ADDRESSLine1"
+            autocomplete="off"
+            [(ngModel)]="user.addressLine1"
+            placeholder="Au moins 5 caractères"> 
+        <h2>Complément d'adresse</h2>    
+        <input class="inputfield"
+            type="string"
+            name="ADDRESSLine1"
+            autocomplete="off"
+            [(ngModel)]="user.addressLine2"
+            placeholder="Complément d'adresse">
+        <h2 class="requiredTitle">City</h2>    
+        <input class="inputfield"
+            type="string"
+            name="CITY"
+            autocomplete="off"
+            [(ngModel)]="user.city"
+            placeholder="Ville">
+        -->
+        <br>
+        <br>
+        <button class="gobutton" type="submit">VALIDER</button>
+
+    </form>
+</div>
