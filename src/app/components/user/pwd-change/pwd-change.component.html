@@ -1,0 +1,55 @@
+<div>
+    <h1>MODIFIER MON MOT DE PASSE</h1>
+
+    <form class="content" (ngSubmit)="f.form.valid && updatePwd()" #f="ngForm" novalidate>
+        <div class="form-group">    
+            <p class="requiredField">*required</p>
+      
+            <h3 class="requiredTitle">Ancien Mot de passe</h3>    
+            <input class="form-control"
+                type="password"
+                name="oldPassword"
+                placeholder="ancien mot de passe"
+                autocomplete="off"
+                required
+                [(ngModel)]="updUser.oldPassword"
+                #oldPassword="ngModel">
+            <div *ngIf="f.submitted && oldPassword.invalid" class="alert alert-danger">
+                <div *ngIf="oldPassword.hasError('required')">Le champ 'Ancien Mot de passe' est obligatoire</div>
+            </div>
+
+            <h3 class="requiredTitle">Nouveau Mot de passe</h3>    
+            <input class="form-control"
+                type="password"
+                name="newPassword"
+                placeholder="Au moins 5 caractères"
+                autocomplete="off"
+                required minlength="5"
+                [(ngModel)]="updUser.newPassword"
+                #newPassword="ngModel">
+            <div *ngIf="f.submitted && newPassword.invalid" class="alert alert-danger">
+                <div *ngIf="newPassword.hasError('required')">Le champ 'Nouveau Mot de passe' est obligatoire</div>
+                <div *ngIf="newPassword.hasError('minlength')">Le nouveau mot de passe doit faire au minimum 5 caractères </div>
+            </div>
+
+            <h3 class="requiredTitle">Confirmer le mot de passe</h3>    
+            <input class="form-control"
+                type="password"
+                name="confirmPassword"
+                placeholder="Au moins 5 caractères"
+                autocomplete="off"
+                required minlength="5"
+                [(ngModel)]="updUser.confirmPassword"
+                #confirmPassword="ngModel">
+            <div *ngIf="f.submitted && confirmPassword.invalid" class="alert alert-danger">
+                <div *ngIf="confirmPassword.hasError('required')">Le champ 'Confirmer le nouveau mot de passe' est obligatoire</div>
+
+            </div>
+
+        </div>
+        <br>
+        <button class="gobutton" type="submit">VALIDER</button>
+        <button class="btn btn-secondary" type="reset">VIDER LE FORMULAIRE</button>
+    
+    </form>
+<div>

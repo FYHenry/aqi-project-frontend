@@ -42,7 +42,7 @@ h2{
     font-style: italic;
 }
 
-.required {
+.requiredField {
     color: #e32;
     text-align: right;
     margin-right: 60px;

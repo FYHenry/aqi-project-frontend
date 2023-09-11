@@ -1,4 +1,5 @@
-<div class="modal">
+<!--<div class="modal">-->
+<div>
 
     <h1>SE CONNECTER</h1>
     <br>
@@ -7,27 +8,23 @@
         <h2 class="requiredTitle">E-Mail</h2>
         <input class="inputfield"
             type="email"
-            name="E-MAIL"
+            name="email"
             autocomplete="off"
             [(ngModel)]="user.email"
             placeholder="nom@exemple.com">
         <br>
-        <br>
         <h2 class="requiredTitle">Mot de passe</h2>    
         <input class="inputfield"
             type="string"
-            name="MOT DE PASSE"
+            name="password"
             autocomplete="off"
             [(ngModel)]="user.password"
             placeholder="Saisissez votre mot de passe">
         <br>
-        <br> 
-        <br>
-        <br>   
         <input class="gobutton" type="submit" value="CONTINUER">
-        <br>
         <br>
         <p>Vous n'avez pas encore de compte? <a href="toto">Créez votre compte</a></p>
 
     </form>
 </div>
+<!--</div>-->

@@ -7,7 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   menu = false
+  private _signinDisplay = false;
+
   menuClick() {
-    this.menu = !this.menu
+    this.menu = !this.menu;
+  }
+  
+  signinClick(){
+    this._signinDisplay = !this._signinDisplay;
+  }
+
+  public get signinDisplay():boolean{
+    return this._signinDisplay;
   }
 }

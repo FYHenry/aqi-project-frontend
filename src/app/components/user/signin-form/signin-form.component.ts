@@ -16,7 +16,7 @@ export class SigninFormComponent {
   login(){
     this._authService
       .auth(this.user)
-      .subscribe(() => {console.log("User is logged in")});
+      .subscribe(() => {console.log("User logged in successfully")});
   }
 
 }
