@@ -1,16 +1,15 @@
-<!--<div class="modal">-->
 <div>
-    <h1>S'INSCRIRE</h1>
+    <h3>S'INSCRIRE</h3>
 
     <form class="content" (ngSubmit)="f.form.valid && createUser()" #f="ngForm" novalidate>
         <div class="form-group">    
             <p class="requiredField">*required</p>
 
-            <h3 class="requiredTitle">Nom</h3>
+            <p class="requiredTitle">Nom</p>
             <input class="form-control"
                 type="text"
                 name="lastName"
-                placeholder="nom de famille"
+                placeholder="Nom"
                 autocomplete="off"
                 required
                 [(ngModel)]="newUser.lastName"
@@ -19,7 +18,7 @@
                 <div *ngIf="lastName.hasError('required')">Le champ Nom est obligatoire</div>
             </div>
             
-            <h3 class="requiredTitle">Prénom</h3>
+            <p class="requiredTitle">Prénom</p>
             <input class="form-control"
                 type="text"
                 name="firstName"
@@ -32,7 +31,7 @@
                 <div *ngIf="firstName.hasError('required')">Le champ Prénom est obligatoire</div>
             </div>
             
-            <h3 class="requiredTitle">E-Mail</h3>
+            <p class="requiredTitle">E-Mail</p>
             <input class="form-control"
                 type="email"
                 name="email"
@@ -45,9 +44,9 @@
                 <div *ngIf="email.hasError('required')">Le champ email est obligatoire</div>
                 <div *ngIf="email.hasError('email')">La valeur saisie doit correspondre à un format d'email</div>
                 
-            </div>>
+            </div>
 
-            <h3 class="requiredTitle">Mot de passe</h3>    
+            <p class="requiredTitle">Mot de passe</p>    
             <input class="form-control"
                 type="password"
                 name="password"
@@ -61,7 +60,7 @@
                 <div *ngIf="password.hasError('minlength')">Le mot de passe doit faire au minimum 5 caractères </div>
             </div>
 
-            <h3 class="requiredTitle">Confirmer le mot de passe</h3>    
+            <p class="requiredTitle">Confirmer le mot de passe</p>    
             <input class="form-control"
                 type="password"
                 name="confirmPassword"
@@ -74,12 +73,11 @@
                 <div *ngIf="confirmPassword.hasError('required')">Le champ 'Confirmer le mot de passe' est obligatoire</div>
             </div>
 
-            <h2>Addresse postale</h2>
-            <h3 class="requiredTitle">Adresse</h3>    
+            <p class="requiredTitle">Adresse</p>    
             <input class="form-control"
                 type="text"
                 name="AddressLine1"
-                placeholder="addresse"
+                placeholder="Addresse"
                 autocomplete="off"
                 required
                 [(ngModel)]="newUser.addressLine1"
@@ -87,7 +85,7 @@
             <div *ngIf="f.submitted && addressLine1.invalid" class="alert alert-danger">
                 <div *ngIf="addressLine1.hasError('required')">Le champ Adresse est obligatoire</div>
             </div>
-            <h3>Complément d'adresse</h3>    
+            <p>Complément d'adresse</p>    
             <input class="form-control"
                 type="text"
                 name="AddressLine2"
@@ -96,11 +94,11 @@
                 [(ngModel)]="newUser.addressLine2"
                 #addressLine2="ngModel">
 
-            <h3 class="requiredTitle">Commune</h3>    
+            <p class="requiredTitle">Commune</p>    
             <input class="form-control"
                 type="text"
                 name="City"
-                placeholder="Commune"
+                placeholder="Commune: 2 caractères min"
                 autocomplete="off"
                 required
                 [(ngModel)]="newUser.cityInsee"
@@ -108,11 +106,9 @@
                 <div *ngIf="f.submitted && city.invalid" class="alert alert-danger">
                     <div *ngIf="city.hasError('required')">Le champ Commune est obligatoire</div>
                 </div>
+                <input class="gobutton" type="submit" value="VALIDER">
         </div>
-        <br>
-        <button class="gobutton" type="submit">VALIDER</button>
-        <button class="btn btn-secondary" type="reset">VIDER LE FORMULAIRE</button>
-    
+     
+      
     </form>
 <div>
-    
