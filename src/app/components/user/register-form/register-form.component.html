@@ -2,7 +2,7 @@
     <h3>S'INSCRIRE</h3>
 
     <form class="content" (ngSubmit)="f.form.valid && createUser()" #f="ngForm" novalidate>
-        <div class="form-group">    
+        <div class="form-group">
             <p class="requiredField">*required</p>
 
             <p class="requiredTitle">Nom</p>
@@ -17,7 +17,7 @@
             <div *ngIf="f.submitted && lastName.invalid" class="alert alert-danger">
                 <div *ngIf="lastName.hasError('required')">Le champ Nom est obligatoire</div>
             </div>
-            
+
             <p class="requiredTitle">Prénom</p>
             <input class="form-control"
                 type="text"
@@ -30,7 +30,7 @@
             <div *ngIf="f.submitted && firstName.invalid" class="alert alert-danger">
                 <div *ngIf="firstName.hasError('required')">Le champ Prénom est obligatoire</div>
             </div>
-            
+
             <p class="requiredTitle">E-Mail</p>
             <input class="form-control"
                 type="email"
@@ -43,10 +43,10 @@
             <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
                 <div *ngIf="email.hasError('required')">Le champ email est obligatoire</div>
                 <div *ngIf="email.hasError('email')">La valeur saisie doit correspondre à un format d'email</div>
-                
+
             </div>
 
-            <p class="requiredTitle">Mot de passe</p>    
+            <p class="requiredTitle">Mot de passe</p>
             <input class="form-control"
                 type="password"
                 name="password"
@@ -60,7 +60,7 @@
                 <div *ngIf="password.hasError('minlength')">Le mot de passe doit faire au minimum 5 caractères </div>
             </div>
 
-            <p class="requiredTitle">Confirmer le mot de passe</p>    
+            <p class="requiredTitle">Confirmer le mot de passe</p>
             <input class="form-control"
                 type="password"
                 name="confirmPassword"
@@ -71,12 +71,12 @@
                 #confirmPassword="ngModel">
             <div *ngIf="f.submitted && confirmPassword.invalid" class="alert alert-danger">
                 <div *ngIf="confirmPassword.hasError('required')">Le champ 'Confirmer le mot de passe' est obligatoire</div>
-            </div>   
+            </div>
             <!--
-            <div *ngIf="f.submitted && !(confirmPassword==password)" class="alert alert-danger">Les mots de passe sont différents</div>    
+            <div *ngIf="f.submitted && !(confirmPassword==password)" class="alert alert-danger">Les mots de passe sont différents</div>
             -->
 
-            <p class="requiredTitle">Adresse</p>    
+            <p class="requiredTitle">Adresse</p>
             <input class="form-control"
                 type="text"
                 name="AddressLine1"
@@ -88,7 +88,7 @@
             <div *ngIf="f.submitted && addressLine1.invalid" class="alert alert-danger">
                 <div *ngIf="addressLine1.hasError('required')">Le champ Adresse est obligatoire</div>
             </div>
-            <p>Complément d'adresse</p>    
+            <p>Complément d'adresse</p>
             <input class="form-control"
                 type="text"
                 name="AddressLine2"
@@ -119,73 +119,3 @@
         </div>
     </form>
 <div>
-
-
-    <!--(input)="onSearchChange(getvalue($event))"
-    -->
-    <!--<input class="form-control"
-                type="text"
-                name="City"
-                placeholder="Commune: 2 caractères min"
-                autocomplete="off"
-                required
-                [(ngModel)]="newUser.cityInsee"
-                #city="ngModel"
-                (input)="onSearchChange(getValue($event))">
-                <div *ngIf="f.submitted && city.invalid" class="alert alert-danger">
-                    <div *ngIf="city.hasError('required')">Le champ Commune est obligatoire</div>
-                </div>
-
-                <div class="cityList" *ngFor="let c of cityList">
-                    <div (click)="selectedCity = c">- {{ c.name }} {{ c.postCode}} {{c.insee}}</div>
-                </div>
-
-                <div *ngIf="selectedCity">
-                    <p>{{selectedCity.insee}}</p>
-                </div>
-            -->
-
-            <!--
-                <p class="requiredTitle">Commune</p>  
-            <input class="form-control"
-                type="text"
-                name="CitySelection"
-                placeholder="Commune: 2 caractères min"
-                autocomplete="off"
-                required
-                (input)="onSearchChange(getValue($event))">
-
-                <div class="cityList">
-                    <select class="form-control" name="City" [(ngModel)]="newUser.cityInsee">
-                        <option disabled>Select City</option>
-                        <option [value]="c.insee" *ngFor="let c of cityList">{{ c.name }} {{ c.postCode}} </option>
-                    </select>
-                </div>
-            -->
-
-            <!--
-                <p class="requiredTitle">Commune</p>
-            <input class="form-control"
-                type="text"
-                name="CitySelection"
-                placeholder="start entering Commune..."
-                autocomplete="off"
-                required
-                (input)="onSearchChange(getValue($event))">
-
-                <div class="cityList">
-                    <select class="form-control" name="City" [(ngModel)]="newUser.cityInsee">
-                        <option disabled default> Sélectionner la commune....</option>
-                        <option [value]="c.insee" *ngFor="let c of cityList">{{ c.name }} {{ c.postCode}} </option>
-                    </select>
-                </div>
-            -->
-
-            <!--
-                <p class="requiredTitle">Commune</p>
-            <mat-select placeholder="Select Commune..." [(ngModel)]="selectedValue" name="CitySelection">
-                <input [(ngModel)]="searchTxt" matInput placeholder="search">
-                <mat-option *ngFor="let c of cityList" [value]="c.insee" > 
-                </mat-option>
-            </mat-select>
-            -->
