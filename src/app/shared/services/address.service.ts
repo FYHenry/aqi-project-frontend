@@ -14,35 +14,15 @@ export class AddressService{
     constructor(private _http: HttpClient){}
 
     public create(usrInputAddr: Address){
-    
+
         console.log("Address Service-create1: ", this._baseUrl);
         console.log("Address Service-create1: ", usrInputAddr);
         console.log("Address Service-create2: ", usrInputAddr.id);
-        
+
         return this._http.post(this._baseUrl, usrInputAddr);
 
     }
 
 }
 
-/*
-export class AddressService{
-    private _baseUrl = '/api/address';
 
-    constructor(private _http: HttpClient){}
-
-    public create(created: Address){
-        console.log("Address Service-create1: ", this._baseUrl);
-        console.log("Address Service-create1: ", created);
-        console.log("Address Service-create2: ", created.id);
-        
-        return this._http.post(this._baseUrl, created);
-    }
-
-    public update(updated: Address){ 
-        console.log("Address Service UPDATED: ", updated);
-        return this._http
-            .put(`${this._baseUrl}/${updated.id}`, updated)
-    }
-
-}*/
