@@ -1,6 +1,4 @@
 import { Component} from '@angular/core';
-import { Observable } from 'rxjs';
-import { City } from 'src/app/shared/models/city';
 import { CityForm } from 'src/app/shared/models/cityForm';
 import { NewUser } from 'src/app/shared/models/newuser';
 import { CityService } from 'src/app/shared/services/city.service';
@@ -13,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 
 export class RegisterFormComponent{
-  
+
   //selectedValue: any;
   //searchTxt: any;
 
@@ -36,7 +34,7 @@ export class RegisterFormComponent{
     //.subscribe(body => console.log(JSON.stringify(body)));
     //.subscribe(body: HttpResponseBody => this.httpStatusCode=body.code);
   }
-  
+
   getMessage(code: string): string {
     //TODO afficher message de confirmation à l'ecran
     console.log ("displayMsg functon-code:" + code);
@@ -58,7 +56,7 @@ export class RegisterFormComponent{
     return (event.target as HTMLInputElement).value;
   }
 
-  onSearchChange(searchValue: string): void {  
+  onSearchChange(searchValue: string): void {
     //console.log(searchValue);
     this._cityService.findByNameLike(searchValue)
                      .subscribe(cities => {this.cityList = cities});
