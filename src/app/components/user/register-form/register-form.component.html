@@ -71,7 +71,10 @@
                 #confirmPassword="ngModel">
             <div *ngIf="f.submitted && confirmPassword.invalid" class="alert alert-danger">
                 <div *ngIf="confirmPassword.hasError('required')">Le champ 'Confirmer le mot de passe' est obligatoire</div>
-            </div>
+            </div>   
+            <!--
+            <div *ngIf="f.submitted && !(confirmPassword==password)" class="alert alert-danger">Les mots de passe sont différents</div>    
+            -->
 
             <p class="requiredTitle">Adresse</p>    
             <input class="form-control"
@@ -94,21 +97,95 @@
                 [(ngModel)]="newUser.addressLine2"
                 #addressLine2="ngModel">
 
-            <p class="requiredTitle">Commune</p>    
+            <p class="requiredTitle">Commune</p>
             <input class="form-control"
+                type="text"
+                name="CitySelection"
+                placeholder="start entering Commune..."
+                autocomplete="off"
+                required
+                (input)="onSearchChange(getValue($event))">
+
+                <div class="cityList">
+                    <select class="form-control" name="City" [(ngModel)]="newUser.cityInsee">
+                        <option default> Sélectionner la commune....</option>
+                        <option [value]="c.insee" *ngFor="let c of cityList">{{ c.name }} {{ c.postCode}} </option>
+                    </select>
+                </div>
+
+            <input class="gobutton" type="submit" value="VALIDER">
+            <div *ngIf="firstName.hasError('required')">Le champ Prénom est obligatoire</div>
+            <p>message de confirmation/information creation user</p>
+        </div>
+    </form>
+<div>
+
+
+    <!--(input)="onSearchChange(getvalue($event))"
+    -->
+    <!--<input class="form-control"
                 type="text"
                 name="City"
                 placeholder="Commune: 2 caractères min"
                 autocomplete="off"
                 required
                 [(ngModel)]="newUser.cityInsee"
-                #city="ngModel">
+                #city="ngModel"
+                (input)="onSearchChange(getValue($event))">
                 <div *ngIf="f.submitted && city.invalid" class="alert alert-danger">
                     <div *ngIf="city.hasError('required')">Le champ Commune est obligatoire</div>
                 </div>
-                <input class="gobutton" type="submit" value="VALIDER">
-        </div>
-     
-      
-    </form>
-<div>
+
+                <div class="cityList" *ngFor="let c of cityList">
+                    <div (click)="selectedCity = c">- {{ c.name }} {{ c.postCode}} {{c.insee}}</div>
+                </div>
+
+                <div *ngIf="selectedCity">
+                    <p>{{selectedCity.insee}}</p>
+                </div>
+            -->
+
+            <!--
+                <p class="requiredTitle">Commune</p>  
+            <input class="form-control"
+                type="text"
+                name="CitySelection"
+                placeholder="Commune: 2 caractères min"
+                autocomplete="off"
+                required
+                (input)="onSearchChange(getValue($event))">
+
+                <div class="cityList">
+                    <select class="form-control" name="City" [(ngModel)]="newUser.cityInsee">
+                        <option disabled>Select City</option>
+                        <option [value]="c.insee" *ngFor="let c of cityList">{{ c.name }} {{ c.postCode}} </option>
+                    </select>
+                </div>
+            -->
+
+            <!--
+                <p class="requiredTitle">Commune</p>
+            <input class="form-control"
+                type="text"
+                name="CitySelection"
+                placeholder="start entering Commune..."
+                autocomplete="off"
+                required
+                (input)="onSearchChange(getValue($event))">
+
+                <div class="cityList">
+                    <select class="form-control" name="City" [(ngModel)]="newUser.cityInsee">
+                        <option disabled default> Sélectionner la commune....</option>
+                        <option [value]="c.insee" *ngFor="let c of cityList">{{ c.name }} {{ c.postCode}} </option>
+                    </select>
+                </div>
+            -->
+
+            <!--
+                <p class="requiredTitle">Commune</p>
+            <mat-select placeholder="Select Commune..." [(ngModel)]="selectedValue" name="CitySelection">
+                <input [(ngModel)]="searchTxt" matInput placeholder="search">
+                <mat-option *ngFor="let c of cityList" [value]="c.insee" > 
+                </mat-option>
+            </mat-select>
+            -->

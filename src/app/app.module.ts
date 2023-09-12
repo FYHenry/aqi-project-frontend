@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -51,11 +52,11 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule,
     HttpClientModule,
     NgbModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

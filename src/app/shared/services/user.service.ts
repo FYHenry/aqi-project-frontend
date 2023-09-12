@@ -5,6 +5,13 @@ import { Observable } from "rxjs";
 import { ConnectedUser } from "../models/connectedUser";
 import { NewUser } from "../models/newuser";
 
+interface HttpResponseBody {
+    date: string,
+    code: string,
+    message: string,
+    url: string 
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -24,10 +31,17 @@ export class UserService{
         return this._http.get<User>(`${this._baseUrl}/${id}`);
     }
 
-    public create(created: NewUser){
+    /*public create(created: NewUser){
         console.log("UserService CREATE: ", this._baseUrl, created);
         return this._http.post(this._baseUrl, created);
+    }*/
+    
+    public create(created: NewUser): Observable<HttpResponseBody>{
+        console.log("UserService NEW CREATE: ", this._baseUrl, created);
+        //return this._http.post<HttpResponseBody>(this._baseUrl, created, {observe: "body", responseType: "json"});
+        return this._http.post<HttpResponseBody>(this._baseUrl, created);
     }
+
 
     public update(updated: User){
         console.log("UserService UPDATED: ", updated);
