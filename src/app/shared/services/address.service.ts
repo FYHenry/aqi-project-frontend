@@ -7,7 +7,7 @@ import { Address } from "../models/address";
 })
 
 export class AddressService{
-    private _baseUrl = '/api/address';
+    private _baseUrl = 'http://localhost:8081/cityForm';
     private _createdAddr: Address = {};
 
     constructor(private _http: HttpClient){}

@@ -8,8 +8,7 @@ import { CityForm } from "../models/cityForm";
 })
 
 export class CityService{
-    //private _baseUrl = 'http://localhost:8080/cityForm';
-    private _baseUrl = '/api/cityForm';
+    private _baseUrl = 'http://localhost:8081/cityForm';
 
     constructor(private _http: HttpClient){
     }
