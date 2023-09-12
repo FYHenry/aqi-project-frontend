@@ -26,6 +26,8 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlagsService } from './shared/services/flags.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -57,7 +60,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [FlagsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
