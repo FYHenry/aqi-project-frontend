@@ -17,8 +17,7 @@ interface HttpResponseBody {
 })
 
 export class UserService{
-    private _baseUrl = '/api/user-account';
-    private _baseUrlRetrieve = '/api/connectedUser';
+    private _baseUrl = "http://localhost:8081/";
 
     constructor(private _http: HttpClient){
     }
@@ -49,7 +48,7 @@ export class UserService{
     }
 
     public findConnectedUserById(id: number): Observable<ConnectedUser> {
-        return this._http.get<ConnectedUser>(`${this._baseUrlRetrieve}/${id}`);
+      return this._http.get<ConnectedUser>(`${this._baseUrl}connectedUser/${id}`);
     }
 
 }

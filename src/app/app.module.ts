@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,6 +26,10 @@ import { HomeComponent } from './components/forum/home/home.component';
 import { TopicComponent } from './components/forum/topic/topic.component';
 import { ThreadComponent } from './components/forum/thread/thread.component';
 
+import { FlagsService } from './shared/services/flags.service';
+import { AppRoutingModule } from './app-routing.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,15 +53,15 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
     HttpClientModule,
     NgbModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [FlagsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

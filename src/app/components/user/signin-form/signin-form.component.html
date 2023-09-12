@@ -1,11 +1,8 @@
 <div>
-
     <h3>SE CONNECTER</h3>
     <form class="content" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-        <div class="form-group"> 
+        <div class="form-group">
         <p class="required">*required</p>
-
-
         <p class="requiredTitle">E-Mail</p>
         <input class="form-control"
             type="email"
@@ -18,9 +15,9 @@
         <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
             <div *ngIf="email.hasError('required')">Le champ email est obligatoire</div>
             <div *ngIf="email.hasError('email')">La valeur saisie doit correspondre à un format d'email</div>
-            
+
         </div>
-        <p class="requiredTitle">Mot de passe</p>    
+        <p class="requiredTitle">Mot de passe</p>
         <input class="form-control"
             type="string"
             name="password"
@@ -35,7 +32,7 @@
         </div>
         <div>
         <input class="gobutton" type="submit" value="CONTINUER">
-        <p class="hyperlien">Vous n'avez pas encore de compte? <br> <a href="toto">Créez votre compte</a></p>
+        <p class="hyperlien">Vous n'avez pas encore de compte? <br> <a routerLink="register-form" (click)="change()">Créez votre compte</a></p>
     </div>
     </div>
     </form>

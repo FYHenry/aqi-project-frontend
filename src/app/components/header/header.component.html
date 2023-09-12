@@ -16,16 +16,16 @@
             <!-- Liens de navigation -->
             <ul class="navbar-nav ml-auto ulclass" [hidden]="menu">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Forum <i class="fa fa-comments"></i> </a> 
+                    <a class="nav-link" href="#"> Forum <i class="fa fa-comments"></i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Alertes <i class="fa fa-triangle-exclamation"></i></a>
+                    <a class="nav-link" href="#">Alertes<i class="fa fa-triangle-exclamation"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="signinClick()">Account <i class="fa fa-user"></i> </a> 
+                    <a class="nav-link" href="#" (click)="signinClick()">Account <i class="fa fa-user"></i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout <i class="fa fa-arrow-right"></i></a>
+                    <a class="nav-link" href="#" (click)="change()">Logout ({{ flag }})<i class="fa fa-arrow-right"></i></a>
                 </li>
             </ul>
             <button class="menubutton" (click)="menuClick()"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
@@ -35,6 +35,6 @@
     </div>
 </nav>
 </header>
-
 <app-signin-form *ngIf="signinDisplay"> </app-signin-form>
+
 
