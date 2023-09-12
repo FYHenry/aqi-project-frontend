@@ -1,76 +1,92 @@
-<div class="modal">
+<!--<div class="modal">-->
 
-    <h1>MON PROFILE</h1>
-    <form class="content" (ngSubmit)="updateProfil()">
-        <p class="required">*required</p>
-        <h2 class="requiredTitle">Nom</h2>
-        <input class="inputfield"
-            type="text"
-            name="lastName"
-            autocomplete="off"
-            [(ngModel)]="user.lastName"
-            placeholder="nom de famille">
-        <h2 class="requiredTitle">Prénom</h2>
-        <input class="inputfield"
-            type="text"
-            name="firstName"
-            autocomplete="off"
-            [(ngModel)]="user.firstName"
-            placeholder="prénom">
-        <h2 class="requiredTitle">E-Mail</h2>
-        <input class="inputfield"
-            type="email"
-            name="E-MAIL"
-            autocomplete="off"
-            [(ngModel)]="user.email"
-            placeholder="nom@exemple.com">
-        <h2 class="requiredTitle">Ancien mot de passe</h2>    
-        <input class="inputfield"
-            type="string"
-            name="ANCIEN MOT DE PASSE"
-            autocomplete="off"
-            [(ngModel)]="user.password"
-            placeholder="mot de passe actuel">
-        <h2 class="requiredTitle">Nouveau mot de passe</h2>    
-        <input class="inputfield"
-            type="string"
-            name="MOT DE PASSE"
-            autocomplete="off"
-            [(ngModel)]="user.password"
-            placeholder="Au moins 5 caractères">
-        <h2 class="requiredTitle">Confirmer nouveau mot de passe</h2>    
-        <input class="inputfield"
-            type="string"
-            name="MOT DE PASSE"
-            autocomplete="off"
-            [(ngModel)]="user.password"
-            placeholder="Au moins 5 caractères">
-        <!--
-            <h2 class="requiredTitle">Adresse postale</h2>    
-        <input class="inputfield"
-            type="string"
-            name="ADDRESSLine1"
-            autocomplete="off"
-            [(ngModel)]="user.addressLine1"
-            placeholder="Au moins 5 caractères"> 
-        <h2>Complément d'adresse</h2>    
-        <input class="inputfield"
-            type="string"
-            name="ADDRESSLine1"
-            autocomplete="off"
-            [(ngModel)]="user.addressLine2"
-            placeholder="Complément d'adresse">
-        <h2 class="requiredTitle">City</h2>    
-        <input class="inputfield"
-            type="string"
-            name="CITY"
-            autocomplete="off"
-            [(ngModel)]="user.city"
-            placeholder="Ville">
-        -->
-        <br>
-        <br>
-        <button class="gobutton" type="submit">VALIDER</button>
+    <div>
+        <h1>MODIFIER MES INFORMATIONS</h1>
 
-    </form>
-</div>
+        <form class="content" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
+            <div class="form-group">    
+                <p class="requiredField">*required</p>
+    
+                <h3 class="requiredTitle">Nom</h3>
+                <input class="form-control"
+                    type="text"
+                    name="lastName"
+                    placeholder="{{ user.lastName}}"
+                    autocomplete="off"
+                    required
+                    [(ngModel)]="updUser.lastName"
+                    #lastName="ngModel">
+                <div *ngIf="f.submitted && lastName.invalid" class="alert alert-danger">
+                    <div *ngIf="lastName.hasError('required')">Le champ Nom est obligatoire</div>
+                </div>
+                
+                <h3 class="requiredTitle">Prénom</h3>
+                <input class="form-control"
+                    type="text"
+                    name="firstName"
+                    placeholder="{{ user.firstName}}"
+                    autocomplete="off"
+                    required
+                    [(ngModel)]="updUser.firstName"
+                    #firstName="ngModel">
+                <div *ngIf="f.submitted && firstName.invalid" class="alert alert-danger">
+                    <div *ngIf="firstName.hasError('required')">Le champ Prénom est obligatoire</div>
+                </div>
+                
+                <h3 class="requiredTitle">E-Mail</h3>
+                <input class="form-control"
+                    type="email"
+                    name="email"
+                    placeholder="{{ user.email }}"
+                    autocomplete="off"
+                    required email
+                    [(ngModel)]="updUser.email"
+                    #email="ngModel">
+                <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+                    <div *ngIf="email.hasError('required')">Le champ email est obligatoire</div>
+                    <div *ngIf="email.hasError('email')">La valeur saisie doit correspondre à un format d'email</div>
+                    
+                </div>
+    
+                <h2>Addresse postale</h2>
+                <h3 class="requiredTitle">Adresse</h3>    
+                <input class="form-control"
+                    type="text"
+                    name="AddressLine1"
+                    placeholder="{{ user.address1 }}"
+                    autocomplete="off"
+                    required
+                    [(ngModel)]="updUser.addressLine1"
+                    #addressLine1="ngModel">
+                <div *ngIf="f.submitted && addressLine1.invalid" class="alert alert-danger">
+                    <div *ngIf="addressLine1.hasError('required')">Le champ Adresse est obligatoire</div>
+                </div>
+
+                <h3>Complément d'adresse</h3>    
+                <input class="form-control"
+                    type="text"
+                    name="AddressLine2"
+                    placeholder="{{ user.address2 }}"
+                    autocomplete="off"
+                    [(ngModel)]="updUser.addressLine2"
+                    #addressLine2="ngModel">
+    
+                <h3 class="requiredTitle">Commune</h3>    
+                <input class="form-control"
+                    type="text"
+                    name="City"
+                    placeholder="{{ user.cityName }}"
+                    autocomplete="off"
+                    required
+                    [(ngModel)]="updUser.cityInsee"
+                    #city="ngModel">
+                    <div *ngIf="f.submitted && city.invalid" class="alert alert-danger">
+                        <div *ngIf="city.hasError('required')">Le champ Commune est obligatoire</div>
+                    </div>
+            </div>
+            <br>
+            <button class="gobutton" type="submit">VALIDER</button>
+            <button class="btn btn-secondary" type="reset">VIDER LE FORMULAIRE</button>
+        
+        </form>
+    <div>

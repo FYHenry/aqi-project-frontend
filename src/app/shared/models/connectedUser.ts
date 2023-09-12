@@ -6,6 +6,6 @@ export interface ConnectedUser {
   cityName: string;
   cityLat: number;
   cityLong: number;
-  adress1: string;
-  adress2?: string;
+  address1: string;
+  address2?: string;
 }

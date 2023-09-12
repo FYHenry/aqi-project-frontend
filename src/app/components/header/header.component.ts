@@ -10,8 +10,18 @@ export class HeaderComponent {
   constructor(private _flagsService: FlagsService){
   }
   menu = false
+  private _signinDisplay = false;
+
   menuClick() {
-    this.menu = !this.menu
+    this.menu = !this.menu;
+  }
+  
+  signinClick(){
+    this._signinDisplay = !this._signinDisplay;
+  }
+
+  public get signinDisplay():boolean{
+    return this._signinDisplay;
   }
 
   public change(): void{

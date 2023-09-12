@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Address } from 'src/app/shared/models/address';
-import { User } from 'src/app/shared/models/user';
-import { AddressService } from 'src/app/shared/services/address.service';
+import { Component} from '@angular/core';
+import { Observable } from 'rxjs';
+import { City } from 'src/app/shared/models/city';
+import { CityForm } from 'src/app/shared/models/cityForm';
+import { NewUser } from 'src/app/shared/models/newuser';
+import { CityService } from 'src/app/shared/services/city.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -11,93 +12,56 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./register-form.component.css']
 })
 
-export class RegisterFormComponent /*V1: implements OnInit*/ {
-  user: User ={};
-  address: Address={};
+export class RegisterFormComponent{
+  
+  //selectedValue: any;
+  //searchTxt: any;
 
-  registerForm = new FormGroup({
-    lastName: new FormControl(''),
-    firstName: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    passwordConf: new FormControl(''),
-    usraddress: new FormGroup({
-      addressLine1: new FormControl(''),
-      addressLine2: new FormControl(''),
-      city: new FormControl('')
-    })
-  });
-
-  constructor(private _userService: UserService, private _addressService: AddressService) {
-  }
-
-  createAddress(){
-    console.log("RegisterForm-CreareAddress1", this.address);
-    this.address.addressLine1 = this.registerForm.value.usraddress?.addressLine1!;
-    this.address.addressLine2 = this.registerForm.value.usraddress?.addressLine2!;
-    this.address.cityInsee = "34296";
+  newUser: NewUser={};
+  cityList: CityForm[]=[];
+  selectedCity!: CityForm;
+  httpStatusCode!: string;
+  constructor(private _userService: UserService,
+              private _cityService: CityService) {
   }
 
   createUser(){
-
-    this.createAddr();
-    this.createUsr();
+    console.log(this.newUser);
+    const retour=this._userService
+      .create(this.newUser)
+      .subscribe(body => this.getMessage(this.httpStatusCode=body.code));
+    // console.log("httpStatusCode:" + this.httpStatusCode);
+    // console.log("retour: " + retour);
+    //.subscribe(()=> console.log("User successfully created"));
+    //.subscribe(body => console.log(JSON.stringify(body)));
+    //.subscribe(body: HttpResponseBody => this.httpStatusCode=body.code);
   }
-
-  createAddr(){
-    this.address.addressLine1 = this.registerForm.value.usraddress?.addressLine1!;
-    this.address.addressLine2 = this.registerForm.value.usraddress?.addressLine2!;
-    this.address.cityInsee = "34296";
-    console.log("RegsterForm-createAddress-this.address", this.address);
-    console.log("RegsterForm-createAddress-thisregiserForm", this.registerForm.value.usraddress);
-
-    this._addressService
-      .create(this.address)
-      .subscribe(() => {console.log("User address created")})
-}
-
-  createUsr(){
-    console.log("RegsterForm-createUser1", this.registerForm.value);
-
-    console.log("RegsiterForm-CreateUser:1", this.user);
-
-    this.user.lastName = this.registerForm.value.lastName!;
-    this.user.firstName = this.registerForm.value.firstName!;
-    this.user.email=this.registerForm.value.email!;
-    this.user.password=this.registerForm.value.password!;
-    this.user.role="USER";
-    this.user.addressId = 1;
-    this.user.userStatusIds = [];
-    this.user.bookmarkIds = [];
-    this.user.topicIds = [];
-    this.user.threadIds = [];
-    this.user.messageIds = [];
-    this.user.reactionIds = [];
-
-    console.log("RegsterForm-createUser2", this.registerForm.value);
-    this._userService
-      .create(this.user)
-      .subscribe(() => {console.log("User created")})
-
-  }
-}
-
-
-/* M S05.09: OLD CLASS
-  export class RegisterFormComponent {
-    user: User ={};
-
-    constructor(private _userService: UserService){}
-
-    createUser(){
-      console.log("RegsiterForm-CreateUser:1", this.user);
-      this.user.role="USER";
-
-      console.log("RegsiterForm-CreateUser:2", this.user);
-      this._userService
-        .create(this.user)
-        .subscribe(() => {console.log("New User has been created")});
-
+  
+  getMessage(code: string): string {
+    //TODO afficher message de confirmation à l'ecran
+    console.log ("displayMsg functon-code:" + code);
+    if(code='200'){
+      console.log('20O');
+      return("Compte correctement créé");
+    }
+    else{
+      console.log('DIFF 20O');
+      return("Erreur lors de la creation du compte");
     }
   }
-  */
+
+  displayMessage(message:string): void{
+    //TODO
+  }
+
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  onSearchChange(searchValue: string): void {  
+    //console.log(searchValue);
+    this._cityService.findByNameLike(searchValue)
+                     .subscribe(cities => {this.cityList = cities});
+  }
+
+}

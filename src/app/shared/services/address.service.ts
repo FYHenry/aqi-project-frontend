@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Address } from "../models/address";
-import { tap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
