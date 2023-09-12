@@ -1,5 +1,7 @@
 # AqiProjectFrontend
 
+Ce projet est né de la collaboration entre FYHenry, HassAllali, NicolasSoulay et melinasim.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
 
 ## Development server
