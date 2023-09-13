@@ -17,8 +17,8 @@ interface HttpResponseBody {
 })
 
 export class UserService{
-    private _baseUrl = "http://localhost:8081/";
     private _userUrl = "user-account";
+    private _baseUrl = "/api/";
 
     constructor(private _http: HttpClient){
     }
@@ -28,26 +28,27 @@ export class UserService{
     }
 
     public findById(id: number): Observable<User> {
-        return this._http.get<User>(`${this._baseUrl}/${id}`);
+        return this._http.get<User>(`${this._baseUrl+this._userUrl}/${id}`);
     }
 
+    /* create new user account */
     public create(created: NewUser): Observable<HttpResponseBody>{
-        console.log("UserService NEW CREATE: ", this._baseUrl+this._userUrl, created);
         return this._http.post<HttpResponseBody>(this._baseUrl+this._userUrl, created);
     }
 
+    /* update existing user profile */
     public update(updated: User){
-        console.log("UserService UPDATED: ", updated);
         return this._http
             .put(`${this._baseUrl+this._userUrl}/profile/${updated.id}`, updated)
     }
 
+    /* update existing user password */
     public updatePwd(updated: User){
-        console.log("UserService UPDATE PWD: ", updated);
         return this._http
             .put(`${this._baseUrl+this._userUrl}/pwd/${updated.id}`, updated)
     }
 
+    /* get details of user currently connected */
     public findConnectedUserById(id: number): Observable<ConnectedUser> {
       return this._http.get<ConnectedUser>(`${this._baseUrl}connectedUser/${id}`);
     }

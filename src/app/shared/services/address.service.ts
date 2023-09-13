@@ -7,17 +7,11 @@ import { Address } from "../models/address";
 })
 
 export class AddressService{
-    private _baseUrl = 'http://localhost:8081/cityForm';
-    private _createdAddr: Address = {};
+    private _baseUrl = '/api/cityForm';
 
     constructor(private _http: HttpClient){}
 
     public create(usrInputAddr: Address){
-
-        console.log("Address Service-create1: ", this._baseUrl);
-        console.log("Address Service-create1: ", usrInputAddr);
-        console.log("Address Service-create2: ", usrInputAddr.id);
-
         return this._http.post(this._baseUrl, usrInputAddr);
 
     }

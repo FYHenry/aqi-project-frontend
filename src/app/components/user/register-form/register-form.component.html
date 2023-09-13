@@ -71,9 +71,6 @@
             <div *ngIf="f.submitted && confirmPassword.invalid" class="alert alert-danger">
                 <div *ngIf="confirmPassword.hasError('required')">Le champ 'Confirmer le mot de passe' est obligatoire</div>
             </div>
-            <!--
-            <div *ngIf="f.submitted && !(confirmPassword==password)" class="alert alert-danger">Les mots de passe sont différents</div>
-            -->
 
             <p class="requiredTitle">Adresse</p>
             <input class="form-control"
@@ -113,8 +110,6 @@
                 </div>
 
             <input class="gobutton" type="submit" value="VALIDER">
-            <div *ngIf="firstName.hasError('required')">Le champ Prénom est obligatoire</div>
-            <p>message de confirmation/information creation user</p>
         </div>
     </form>
 <div>
