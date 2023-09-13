@@ -8,7 +8,7 @@ import { CityForm } from "../models/cityForm";
 })
 
 export class CityService{
-    private _baseUrl = 'http://localhost:8081/cityForm';
+    private _baseUrl = '/api/cityForm';
 
     constructor(private _http: HttpClient){
     }
@@ -16,11 +16,5 @@ export class CityService{
     public findByNameLike(name: string) {
         return this._http.get<CityForm[]>(`${this._baseUrl}/${name}`);
     }
-
-    /* NIcolas
-    public findByNameLike(name: string): Observable<CityForm> {
-        return this._http.get<CityForm>(`${this._baseUrl}/${name}`);
-    }
-    */
 
 }

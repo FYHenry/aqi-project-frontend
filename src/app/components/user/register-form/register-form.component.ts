@@ -12,9 +12,6 @@ import { UserService } from 'src/app/shared/services/user.service';
 
 export class RegisterFormComponent{
 
-  //selectedValue: any;
-  //searchTxt: any;
-
   newUser: NewUser={};
   cityList: CityForm[]=[];
   selectedCity!: CityForm;
@@ -23,41 +20,35 @@ export class RegisterFormComponent{
               private _cityService: CityService) {
   }
 
+  /* create user account*/
   createUser(){
-    console.log(this.newUser);
-    const retour=this._userService
+    //this._userService;
+    this._userService
       .create(this.newUser)
       .subscribe(body => this.getMessage(this.httpStatusCode=body.code));
-    // console.log("httpStatusCode:" + this.httpStatusCode);
-    // console.log("retour: " + retour);
-    //.subscribe(()=> console.log("User successfully created"));
-    //.subscribe(body => console.log(JSON.stringify(body)));
-    //.subscribe(body: HttpResponseBody => this.httpStatusCode=body.code);
   }
 
+  /* read httpstatus code returned after user creation */
   getMessage(code: string): string {
-    //TODO afficher message de confirmation à l'ecran
-    console.log ("displayMsg functon-code:" + code);
     if(code='200'){
-      console.log('20O');
       return("Compte correctement créé");
     }
     else{
-      console.log('DIFF 20O');
       return("Erreur lors de la creation du compte");
     }
   }
 
+  /* display user message to confirmation successful user creation */
   displayMessage(message:string): void{
-    //TODO
+    //TODO afficher message de confirmation à l'ecran
   }
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
 
+  /* dynamically get all cities starting with the characters entered by user in the city field */
   onSearchChange(searchValue: string): void {
-    //console.log(searchValue);
     this._cityService.findByNameLike(searchValue)
                      .subscribe(cities => {this.cityList = cities});
   }
