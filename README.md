@@ -2,7 +2,7 @@
 
 ## Présentation
 
-Ce projet est né de la collaboration entre FYHenry, HassAllali, NicolasSoulay et melinasim.
+Ce projet est né de la collaboration entre @FYHenry, @HassAllali, @NicolasSoulay et @melinasim.
 
 Il est initié par la [CLI d’Angular](https://github.com/angular/angular-cli), version 16.0.5.
 
