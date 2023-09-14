@@ -1,0 +1,40 @@
+.header{
+    right: 0; 
+    top:0; 
+    width: 55%; 
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.header-nav{
+    background-color: #333; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    padding: 10px;
+    border-radius: 15px; 
+}
+
+.my-container{
+    justify-content: flex-end; 
+    background-color: white;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+
+.nav-link{
+    color: #092f3a;
+}
+
+.menubutton {
+    display: none;
+    margin-right: 30px;
+    color: #092f3a;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 700px) {
+    .menubutton {
+        display: block;
+        z-index: 11;
+    }
+}
+

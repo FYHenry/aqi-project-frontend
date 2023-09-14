@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Address } from 'src/app/shared/models/address';
-import { User } from 'src/app/shared/models/user';
+import { Component} from '@angular/core';
+import { CityForm } from 'src/app/shared/models/cityForm';
+import { NewUser } from 'src/app/shared/models/newuser';
+import { CityService } from 'src/app/shared/services/city.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -10,74 +10,47 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./register-form.component.css']
 })
 
-export class RegisterFormComponent /*V1: implements OnInit*/ {
-  user: User ={};
-  address: Address={};
+export class RegisterFormComponent{
 
-  registerForm = new FormGroup({
-    lastName: new FormControl(''),
-    firstName: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    passwordConf: new FormControl(''),
-    address: new FormGroup({
-      addressLine1: new FormControl(''),
-      addressLine2: new FormControl(''),
-      city: new FormControl('')
-    })
-  });
-
-  constructor(private _userService: UserService) {
+  newUser: NewUser={};
+  cityList: CityForm[]=[];
+  selectedCity!: CityForm;
+  httpStatusCode!: string;
+  constructor(private _userService: UserService,
+              private _cityService: CityService) {
   }
-  createAddress(){
-    console.log("RegisterForm-CreareAddress1", this.address);
-    this.address.addressLine1 = this.registerForm.value.address?.addressLine1!;
-    this.address.addressLine2 = this.registerForm.value.address?.addressLine2!;
-    this.address.city = "34296";
 
-
-  }
+  /* create user account*/
   createUser(){
-    console.log("RegsiterForm-CreateUser:1", this.user);
-
-    this.user.lastName = this.registerForm.value.lastName!;
-    this.user.firstName = this.registerForm.value.firstName!;
-    this.user.email=this.registerForm.value.email!;
-    this.user.password=this.registerForm.value.password!;
-    this.user.role="USER";
-    this.user.addressId = 1;
-    this.user.userStatusIds = [];
-    this.user.bookmarkIds = [];
-    this.user.topicIds = [];
-    this.user.threadIds = [];
-    this.user.messageIds = [];
-    this.user.reactionIds = [];
-
-    console.log("RegsiterForm-CreateUser:2", this.user);
-    console.log("RegsiterForm-value:", this.registerForm.value);
-    console.log("RegsiterForm-value:", this.registerForm.value.lastName);
+    //this._userService;
     this._userService
-      .create(this.user)
-      .subscribe(() => {console.log("New User has been created")});
-
+      .create(this.newUser)
+      .subscribe(body => this.getMessage(this.httpStatusCode=body.code));
   }
-}
 
-/* M S05.09: OLD CLASS
-  export class RegisterFormComponent {
-    user: User ={};
-
-    constructor(private _userService: UserService){}
-
-    createUser(){
-      console.log("RegsiterForm-CreateUser:1", this.user);
-      this.user.role="USER";
-
-      console.log("RegsiterForm-CreateUser:2", this.user);
-      this._userService
-        .create(this.user)
-        .subscribe(() => {console.log("New User has been created")});
-
+  /* read httpstatus code returned after user creation */
+  getMessage(code: string): string {
+    if(code='200'){
+      return("Compte correctement créé");
+    }
+    else{
+      return("Erreur lors de la creation du compte");
     }
   }
-  */
+
+  /* display user message to confirmation successful user creation */
+  displayMessage(message:string): void{
+    //TODO afficher message de confirmation à l'ecran
+  }
+
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  /* dynamically get all cities starting with the characters entered by user in the city field */
+  onSearchChange(searchValue: string): void {
+    this._cityService.findByNameLike(searchValue)
+                     .subscribe(cities => {this.cityList = cities});
+  }
+
+}

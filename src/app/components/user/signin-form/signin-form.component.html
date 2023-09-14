@@ -1,33 +1,41 @@
-<div class="modal">
-
-    <h1>SE CONNECTER</h1>
-    <br>
-    <form class="content" (ngSubmit)="login()">
+<div>
+    <h3>SE CONNECTER</h3>
+    <form class="content" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group">
         <p class="required">*required</p>
-        <h2 class="requiredTitle">E-Mail</h2>
-        <input class="inputfield"
+        <p class="requiredTitle">E-Mail</p>
+        <input class="form-control"
             type="email"
-            name="E-MAIL"
+            name="email"
             autocomplete="off"
+            required
             [(ngModel)]="user.email"
-            placeholder="nom@exemple.com">
-        <br>
-        <br>
-        <h2 class="requiredTitle">Mot de passe</h2>    
-        <input class="inputfield"
-            type="string"
-            name="MOT DE PASSE"
-            autocomplete="off"
-            [(ngModel)]="user.password"
-            placeholder="Saisissez votre mot de passe">
-        <br>
-        <br> 
-        <br>
-        <br>   
-        <input class="gobutton" type="submit" value="CONTINUER">
-        <br>
-        <br>
-        <p>Vous n'avez pas encore de compte? <a href="toto">Créez votre compte</a></p>
+            placeholder="nom@exemple.com"
+            #email="ngModel">
+        <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+            <div *ngIf="email.hasError('required')">Le champ email est obligatoire</div>
+            <div *ngIf="email.hasError('email')">La valeur saisie doit correspondre à un format d'email</div>
 
+        </div>
+        <p class="requiredTitle">Mot de passe</p>
+        <input class="form-control"
+            type="string"
+            name="password"
+            autocomplete="off"
+            required
+            [(ngModel)]="user.password"
+            placeholder="Saisissez votre mot de passe"
+            #password="ngModel">
+        <div *ngIf="f.submitted && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.hasError('required')">Le champ 'Mot de passe' est obligatoire</div>
+            <div *ngIf="password.hasError('minlength')">Le mot de passe doit faire au minimum 5 caractères </div>
+        </div>
+        <div>
+        <input class="gobutton" type="submit" value="CONTINUER">
+        <!--<p class="hyperlien">Vous n'avez pas encore de compte? <br> <a routerLink="register-form" routerLinkActive="activebutton" ariaCurrentWhenActive="page" (click)="change()">Créez votre compte</a></p>
+        -->
+        <p class="hyperlien">Vous n'avez pas encore de compte? <br> <a href="/register-form" (click)="change()">Créez votre compte</a></p>
+    </div>
+    </div>
     </form>
 </div>

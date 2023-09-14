@@ -1,5 +1,7 @@
-import { AfterViewInit, Component } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import { ConnectedUser } from 'src/app/shared/models/connectedUser';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -7,14 +9,25 @@ import * as L from 'leaflet';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit  {
+export class MapComponent implements OnInit  {
 
-  ngAfterViewInit(): void {
+  user!: ConnectedUser;
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
     const map = L.map('map').setView([43.4637, 2.1450], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(map);
+
+    this.createHomeMarker().addTo(map)
   }
+
+  createHomeMarker() {
+    return L.marker([43.4637, 2.1450]);
+  }
+
 }

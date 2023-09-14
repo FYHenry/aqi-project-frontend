@@ -7,15 +7,17 @@ import { Injectable } from'@angular/core';
 })
 
 export class AuthService{
-    private _baseUrl = '/api/sessions';
+    private _baseUrl = '/api/';
 
     constructor(private _http: HttpClient){
     }
+
     public auth(loginCred: User){
-        console.log("authService auth: ",  this._baseUrl, loginCred);
-        console.log("auth2:",this._http.post(this._baseUrl, loginCred));
-        return this._http
-            .post<User>(this._baseUrl, loginCred);
+        return this._http.post<User>(`${this._baseUrl}sessions`, loginCred);
+    }
+
+    public logout(){
+        return this._http.post(`${this._baseUrl}logout`,{});
     }
 
 }

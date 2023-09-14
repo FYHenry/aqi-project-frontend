@@ -1,55 +1,20 @@
-.modal {
-    /*display: none;*/ /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    /*display: flex;*/
-    text-align: center;
 
-    left: 50px;
-    top: 100;
-    width: 30%; 
-    height: 90%; 
-    overflow: auto; /* Enable scroll if needed */
-    background-color: #F8F8F8;
-    border-radius: 16px;
+h3{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    margin-bottom: 10%;
 }
 
-.content {
-    margin-left: 10%;
-    text-align: left;
-}
-
-h1{
-    color: blue;
-    font-size: 24;
-    font-weight: bold;
-}
-
-h2{
-    font-size: 16px;
-    height: 5px;
-}
-
-.inputfield {
-    border: shadow;
-    border-radius: 4px;
-    /*display: block;*/
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    padding: 5px 10px;
-    text-align: left;
-    font-style: italic;
-}
-
-.required {
+.requiredField{
     color: #e32;
     text-align: right;
-    margin-right: 60px;
     font-style: italic;
-}
-.requiredTitle {
-    font-weight: bold;
 }
 .requiredTitle:before {
     color: #e32;
@@ -57,17 +22,33 @@ h2{
     display:inline;
 }
 
+.form-group{
+    align-items: center;
+}
+
+
 .gobutton {
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 8px;
-    display: block;
-    margin-left: 100px;
-    margin-right: auto;
-    width: 35%;
+    width: auto;
     padding: 5px 26px;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
+    display: block;
+    margin: 0 auto;
   }
 
+.form-control{
+    background-color: rgb(233, 232, 232);
+    width: 100%;
+    font-size: 15px;
+}
+
+.alert-danger{
+    width: 100%;
+    font-size: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

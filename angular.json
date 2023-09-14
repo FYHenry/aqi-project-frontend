@@ -25,9 +25,11 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/reset.css",
               "src/styles.css"
+
             ],
             "scripts": []
           },
@@ -67,7 +69,7 @@
         "serve": {
           "options": {
             "proxyConfig": "src/proxy.conf.json"
-          },
+          }, 
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
