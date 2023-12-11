@@ -28,6 +28,7 @@ import { ThreadComponent } from './components/forum/thread/thread.component';
 
 import { FlagsService } from './shared/services/flags.service';
 import { AppRoutingModule } from './app-routing.module';
+import { OpenapiComponent } from './components/openapi/openapi.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     TopicComponent,
     ThreadComponent,
+    OpenapiComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<h2>Open API 3</h2>
+<article *ngFor="let openapiMap of openapiMaps$ | async">
+    <section>
+        <h3>{{ openapiMap['url'] }}</h3>
+        <section *ngFor="let method of getKeys(openapiMap)">
+          <h4>{{ method | uppercase }}</h4>
+          <ul *ngFor="method['']">
+            <li></li>
+          </ul>
+        </section>
+    </section>
+</article>
